@@ -1,0 +1,107 @@
+body {
+    background-color: rgb(12, 14, 21);
+    color: rgb(185, 194, 215);
+    margin: 0;
+    overflow: hidden scroll;
+    z-index: -2;
+}
+
+nav h2{
+    display: inline-block;
+}
+
+header {
+    height: 30vh;
+}
+
+.content-box {
+    margin: 0 auto;
+    text-align: center;
+    width: 80vw;
+}
+
+.shelf {
+    position: relative; /* Needed for draggable behavior */
+    background-clip: padding-box;
+    background-repeat: repeat;
+    background-image: url("media/background-shelf-vertical.png");
+    background-color: #00176ac1;
+    background-blend-mode: color-burn;
+
+    border: 32px transparent solid;
+    border-image: url("media/border-ouch.png") 25% 25% repeat;
+    cursor: grab;
+    /* prevent children from wrapping down */
+    touch-action: none;
+    white-space: nowrap; 
+}
+
+/* This is an expression of pain. */
+.shelf.top {
+    border-bottom-width: 0;
+    border-image: url("media/border-top.png") 14 16 16 16 / 32px 32px 0 32px round;
+}
+.shelf.left {
+    border-right-width: 0;
+    border-image: url("media/border-left.png") 16 16 16 14 / 32px 0 32px 32px round;
+    left: 75vw;
+}
+.shelf.right {
+    border-left-width: 0;
+    border-image: url("media/border-right.png") 16 14 16 16 / 32px 32px 32px 0 round;
+    width: 25vw;
+}
+.shelf.bottom { 
+    border-top-width: 0;
+    border-image: url("media/border-bottom.png") 16 16 14 16 / 0 32px 32px 32px round;
+}
+
+.shelf:active {
+    cursor: grabbing;
+}
+
+.shelf img {
+    display: inline-block;
+}
+
+/* !!! CSS GRID OUT THE WORKS SECTION PLSSSSS !!!!! */
+
+.gallery {
+    background-color: rgb(37, 51, 61);
+    text-align: center;
+    padding: 1vh .5vw;
+    /* setting this out of relative causes shelves to appear over, instead of under */
+    position: relative; 
+    z-index: 2;
+}
+
+.gallery ul { 
+    scroll-behavior: smooth;
+    scrollbar-color: red orange;
+    scrollbar-width: thin;
+    list-style: none;
+    overflow-x: auto;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.gallery li {
+    display: inline-block;
+}
+
+.gallery figure {
+    width: fit-content;
+    background-color: rgb(23, 51, 21);
+    border: .5rem transparent solid;
+    border-image: url("media/border-frame-pic.png") 12.5% 12.5% stretch;
+}
+
+.gallery li::before {
+    content: "";
+}
+
+footer {
+    background-color: rgb(28, 35, 46);
+    padding: 1vh 2vw;
+    position: relative;
+}
